@@ -1,10 +1,13 @@
-import "./App.css";
+import MovieApplication from "./components/MovieApplication";
+import AddMovieForm from "./components/AddMovieForm";
+import Movies from "./components/Movies";
 
 function App() {
   return (
-    <>
-      <div>Hello!</div>
-    </>
+    <MovieApplication>
+      <AddMovieForm />
+      <Movies />
+    </MovieApplication>
   );
 }
 
