@@ -2,13 +2,14 @@ import { useContext, useState } from "react";
 import { MovieContext } from "../context/MovieContext";
 
 function AddMovieForm() {
-  const [title, setTitle] = useState();
-  const [rating, setRating] = useState();
+  const [title, setTitle] = useState(""); // useState för att hålla koll på titeln
+  const [rating, setRating] = useState("0"); // useState för att hålla koll på betyget
   const { movies, setMovies } = useContext(MovieContext);
 
   function HandleSubmit(event) {
     event.preventDefault();
 
+    // Validera att titeln och betyget är ifyllda
     if (title === "") {
       window.alert("Fyll i titel");
       return;
@@ -17,6 +18,7 @@ function AddMovieForm() {
       return;
     }
 
+    // Skapa ett nytt filmobjekt och lägg till det i listan
     setMovies([
       ...movies,
       {
@@ -25,6 +27,7 @@ function AddMovieForm() {
       },
     ]);
 
+    // Återställ formuläret och states
     setRating("");
     setTitle("");
     event.target.reset();

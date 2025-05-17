@@ -8,10 +8,9 @@ function Movie({ title, grade }) {
 
   function deleteMovie(event) {
     const li = event.target.closest("li");
-    const movieTitle = li.dataset.title;
-    const movieRating = li.dataset.grade;
     const updatedMovies = movies.filter(
-      (movie) => !(movie.title === movieTitle && movie.rating === movieRating)
+      (movie) =>
+        !(movie.title === li.dataset.title && movie.rating === li.dataset.grade)
     );
 
     setMovies(updatedMovies);
